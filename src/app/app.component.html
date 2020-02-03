@@ -1,14 +1,16 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="fr">
     <head>
         <title>The Miage Calculator</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+       
     </head>
-    <body>
-        <!-- Barre de navigation -->
+    <body>-->
+        <!-- Barre de navigation --> <!--
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -23,8 +25,9 @@
                 <div class="collapse navbar-collapse" id="menu-calculator">
                 </div>
             </div>
-        </nav>
+        </nav>-->
         <!-- Conteneur principal -->
+        <!-- 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-5 col-sm-12 col-xs-12  col-md-offset-1">
@@ -82,5 +85,86 @@
             </div>
         </div>
     
+-->
+<nav class="navbar navbar-light bg-light navbar-expand-md">
+   <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#menu-calculator" aria-expanded="false"> <span class="sr-only">Toggle navigation</span>
+     &#x2630;</button> <a class="navbar-brand" href="#" tabindex="-1">Miage Calculator</a>
+   <div class="collapse navbar-collapse" id="menu-calculator"></div>
+ </nav>
+ <!-- Conteneur principal -->
+ <div class="container-fluid">
+   <div class="row offset-md-1">
+     <div class="col-lg-5 col-md-11 col-12  offset-md-1">
+       <div class="">
+         <form id="form">
+           <div class="row">
+             <label for="operande1" class="col-md-2 col-12 col-form-label">Op. 1</label>
+             <div class="col-md-4 col-12">
+               <input type="number" class="form-control" name="operande1" [(ngModel)]="operande1" autofocus tabindex="1">
+             </div>
+             <label for="operande2" class="col-md-2 col-12 col-form-label">Op. 2</label>
+             <div class="col-md-4 col-12">
+               <input type="number" class="form-control" name="operande2"  [(ngModel)]="operande2" tabindex="2">
+             </div>
+           </div>
+           <div class="row">
+             <label for="resultat" class="col-md-2 col-12 col-form-label">R&#xE9;sultat</label>
+             <div class="col-md-10 col-12">
+               <input type="number" class="form-control" id="resultat" [value]="resultat" disabled tabindex="-1">
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-6">
+               <button type="button" class="btn btn-primary btn-block" tabindex="3" (click)="addition()">+</button>
+             </div>
+             <div class="col-6">
+               <button type="button" class="btn btn-primary btn-block" tabindex="4" (click)="soustraction()">-</button>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-6">
+               <button type="button" class="btn btn-primary btn-block" tabindex="5" (click)="multiplication()">*</button>
+             </div>
+             <div class="col-6">
+               <button type="button" class="btn btn-primary btn-block" tabindex="6" id="div" (click)="division()" [disabled]="operande2 === 0">/</button>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col-6">
+               <button type="button" class="btn btn-success btn-block" tabindex="7" (click)="mettreEnMemoire();">M&#xE9;moriser</button>
+             </div>
+             <div class="col-6">
+               <button type="button" class="btn btn-success btn-block" tabindex="8" (click)="rappelMemoire();">Charger la m&#xE9;moire</button>
+             </div>
+           </div>
+           <div class="row">
+             <label for="memory" class="col-md-2 col-12 col-form-label">En m&#xE9;moire</label>
+             <div class="col-md-10 col-12">
+               <input type="number" class="form-control" id="memory" [value]="memoire" readonly tabindex="-1">
+             </div>
+
+
+           </div>
+         </form>
+       </div>
+     </div>
+     <div class="col-12 col-md-12 col-lg-5">
+       <div class="row">
+         <div class="col-12">
+           <div class="card text-white bg-warning">
+             <div class="card-header">
+               <h5>Mes derni&#xE8;res op&#xE9;rations</h5>
+             </div>
+             <div class="card-body" id="historique"></div>
+             <li *ngFor="let op of operations | slice:0:10" ><button (click)="loadOperation(op)">{{op.toString()}}</button></li>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+<!--
     </body>
 </html>
+-->
